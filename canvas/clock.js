@@ -9,7 +9,7 @@ function clock()
 			img.width = 400;
 			img.height = 400;
 			img.crossOrigin = "anonymous";
-			img.src = "textures/4.jpg";
+			img.src = "textures/a.jpg";
 	if(ctx){
 		var timerId;
 		var frameRate = 60;
