@@ -14,6 +14,7 @@
 <body onload="start();">
 <img id="img2" src="textures/2.jpg"  /> 
 <script src="js/three.js"></script>
+<script src="js/Tween.js"></script>
 <script src="js/MultiMaterial.js"></script>
 <script src="js/Math.js"></script>
 <script src="./clock.js"></script>
@@ -69,6 +70,9 @@
 		texture.needsUpdate = true;
         mesh = new THREE.Mesh( geometry,material );
         mesh.position.set(0,0,100);
+        
+        new TWEEN.Tween( mesh.position)
+            .to( { x: -400 }, 3000 ).repeat( Infinity ).start();
         
         scene.add( mesh );
         
