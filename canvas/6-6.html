@@ -94,6 +94,7 @@
 		texture.needsUpdate = true;
 		mesh.rotation.y -= 0.01;
 		mesh.rotation.x -= 0.01;
+		TWEEN.update();
         requestAnimationFrame( animate );
         renderer.render( scene, camera );
     }
