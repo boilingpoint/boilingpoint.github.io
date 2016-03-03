@@ -77,19 +77,14 @@
 		
 		var geometry = new THREE.CubeGeometry(150, 150, 150);
                 
+        THREE.ImageUtils.crossOrigin = 'Anonymous'; 
+        
         var texture1 = THREE.ImageUtils.loadTexture('http://7xqlyr.com1.z0.glb.clouddn.com/duanzixian1.jpg?imageView2/1/w/480/h/260/q/100');
         var texture2 = THREE.ImageUtils.loadTexture('http://7xqlyr.com1.z0.glb.clouddn.com/duanzixian2.jpg?imageView2/1/w/480/h/260/q/100');
         var texture3 = THREE.ImageUtils.loadTexture('http://7xqlyr.com1.z0.glb.clouddn.com/duanzixian3.jpg?imageView2/1/w/480/h/260/q/100');
         var texture4 = THREE.ImageUtils.loadTexture('http://7xqlyr.com1.z0.glb.clouddn.com/duanzixian4.jpg?imageView2/1/w/480/h/260/q/100');
         var texture5 = THREE.ImageUtils.loadTexture('http://7xqlyr.com1.z0.glb.clouddn.com/duanzixian5.jpg?imageView2/1/w/480/h/260/q/100');
         var texture6 = THREE.ImageUtils.loadTexture('http://7xqlyr.com1.z0.glb.clouddn.com/duanzixian6.jpg?imageView2/1/w/480/h/260/q/100');
-        
-        texture1.crossOrigin = 'Anonymous'; 
-        texture2.crossOrigin = 'Anonymous'; 
-        texture3.crossOrigin = 'Anonymous'; 
-        texture4.crossOrigin = 'Anonymous'; 
-        texture5.crossOrigin = 'Anonymous'; 
-        texture6.crossOrigin = 'Anonymous'; 
         
         var material1 = new THREE.MeshBasicMaterial({map:texture1});
         var material2 = new THREE.MeshBasicMaterial({map:texture2});
