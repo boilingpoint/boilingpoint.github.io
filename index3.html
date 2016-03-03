@@ -12,6 +12,7 @@
         <link rel="stylesheet" type="text/css" href="css/demo.css" />
         <link rel="stylesheet" type="text/css" href="css/style.css" />
 		<script type="text/javascript" src="js/modernizr.custom.53451.js"></script>
+		<script src="js/threejs/three.min.js"></script>
     </head>
     <body>
         <div class="container">
@@ -42,10 +43,10 @@
 					<a href="#"><img src="http://7xqlyr.com1.z0.glb.clouddn.com/duanzixian2.jpg?imageView2/1/w/480/h/260/q/100|watermark/2/text/5q615a2Q6LSk/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/59/gravity/SouthEast/dx/10/dy/10" alt="image02"><div></div></a>
 					<a href="#"><img src="http://7xqlyr.com1.z0.glb.clouddn.com/duanzixian3.jpg?imageView2/1/w/480/h/260/q/100|watermark/2/text/5q615a2Q6LSk/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/59/gravity/SouthEast/dx/10/dy/10" alt="image03"><div></div></a>
 				</div>
-				<nav>	
+				<!--<nav>	
 					<span class="dg-prev">&lt;</span>
 					<span class="dg-next">&gt;</span>
-				</nav>
+				</nav>-->
 			</section>
         </div>
 		<script type="text/javascript" src="js/jquery.min.js"></script>
@@ -54,6 +55,86 @@
 			$(function() {
 				$('#dg-container').gallery();
 			});
+			
+    var camera, scene, renderer;
+    var mesh;
+	var texture,texture1,texture2,texture3,texture4,texture5,texture6;
+	
+	function start()
+	{
+		clock();
+		init();
+		animate();
+	}
+
+    function init() {
+
+        renderer = new THREE.WebGLRenderer();
+        renderer.setSize( window.innerWidth, window.innerHeight );
+        document.body.appendChild( renderer.domElement );
+        //
+        camera = new THREE.PerspectiveCamera( 70, window.innerWidth / window.innerHeight, 1, 1000 );
+        camera.position.z = 400;
+        scene = new THREE.Scene();
+		
+		var geometry = new THREE.CubeGeometry(150, 150, 150);
+                
+        var texture1 = THREE.ImageUtils.loadTexture('http://7xqlyr.com1.z0.glb.clouddn.com/duanzixian1.jpg?imageView2/1/w/480/h/260/q/100');
+        var texture2 = THREE.ImageUtils.loadTexture('http://7xqlyr.com1.z0.glb.clouddn.com/duanzixian2.jpg?imageView2/1/w/480/h/260/q/100');
+        var texture3 = THREE.ImageUtils.loadTexture('http://7xqlyr.com1.z0.glb.clouddn.com/duanzixian3.jpg?imageView2/1/w/480/h/260/q/100');
+        var texture4 = THREE.ImageUtils.loadTexture('http://7xqlyr.com1.z0.glb.clouddn.com/duanzixian4.jpg?imageView2/1/w/480/h/260/q/100');
+        var texture5 = THREE.ImageUtils.loadTexture('http://7xqlyr.com1.z0.glb.clouddn.com/duanzixian5.jpg?imageView2/1/w/480/h/260/q/100');
+        var texture6 = THREE.ImageUtils.loadTexture('http://7xqlyr.com1.z0.glb.clouddn.com/duanzixian6.jpg?imageView2/1/w/480/h/260/q/100');
+        
+        var material1 = new THREE.MeshBasicMaterial({map:texture1});
+        var material2 = new THREE.MeshBasicMaterial({map:texture2});
+        var material3 = new THREE.MeshBasicMaterial({map:texture3});
+        var material4 = new THREE.MeshBasicMaterial({map:texture4});
+        var material5 = new THREE.MeshBasicMaterial({map:texture5});
+        var material6 = new THREE.MeshBasicMaterial({map:texture6});
+        
+        var materials = [material1,
+        material2,
+        material3,
+        material4,
+        material5,
+        material6];
+        
+        geometry.faces[0].material = material1;
+        geometry.faces[1].material = material2;
+        geometry.faces[2].material = material3;
+        geometry.faces[3].material = material4;
+        geometry.faces[4].material = material5;
+        geometry.faces[5].material = material6;
+    
+		texture.needsUpdate = true;
+        mesh = new THREE.Mesh( geometry,new THREE.MeshFaceMaterial(materials) );
+        mesh.position.set(0,0,100);
+                
+        scene.add( mesh );
+        
+        var light = new THREE.AmbientLight(0xFF0000);
+        light.position.set(0,100,200);
+        scene.add(light);
+
+        //
+        window.addEventListener( 'resize', onWindowResize, false );
+    }
+
+    function onWindowResize() {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize( window.innerWidth, window.innerHeight );
+    }
+
+    function animate() {
+		texture.needsUpdate = true;
+		mesh.rotation.y -= 0.01;
+		mesh.rotation.x -= 0.01;
+
+        requestAnimationFrame( animate );
+        renderer.render( scene, camera );
+    }
 		</script/>
 		
 		<!-- JiaThis Button BEGIN -->
