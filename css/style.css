@@ -6,7 +6,7 @@
 .dg-wrapper{
 	width: 481px;
 	height: 316px;
-	margin: 0 auto;
+	/*margin: 0 auto;*/
 	position: relative;
 	-webkit-transform-style: preserve-3d;
 	-moz-transform-style: preserve-3d;
