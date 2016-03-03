@@ -14,7 +14,7 @@
 		<script type="text/javascript" src="js/modernizr.custom.53451.js"></script>
 		<script src="js/threejs/three.min.js"></script>
     </head>
-    <body>
+    <body onload="start();">
         <div class="container">
 			<!-- Codrops top bar -->
             <div class="codrops-top">
@@ -60,7 +60,6 @@
 	
 	function start()
 	{
-		clock();
 		init();
 		animate();
 	}
