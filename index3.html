@@ -67,9 +67,10 @@
     function init() {
 
         renderer = new THREE.WebGLRenderer();
+        renderer.alpha = true;
         renderer.setSize( window.innerWidth, window.innerHeight );
-        renderer.setClearColor( 0x000000, 0.5 );
         $('.dg-wrapper')[0].appendChild(renderer.domElement);
+        renderer.setClearColor( 0x000000, 0.5 );
         //document.body.appendChild( renderer.domElement );
         //
         camera = new THREE.PerspectiveCamera( 70, window.innerWidth / window.innerHeight, 1, 1000 );
