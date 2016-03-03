@@ -39,9 +39,7 @@
 			</header>
 			<section id="dg-container" class="dg-container">
 				<div class="dg-wrapper">
-					<a href="#"><img src="http://7xqlyr.com1.z0.glb.clouddn.com/duanzixian1.jpg?imageView2/1/w/480/h/260/q/100|watermark/2/text/5q615a2Q6LSk/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/59/gravity/SouthEast/dx/10/dy/10" alt="image01"><div></div></a>
-					<a href="#"><img src="http://7xqlyr.com1.z0.glb.clouddn.com/duanzixian2.jpg?imageView2/1/w/480/h/260/q/100|watermark/2/text/5q615a2Q6LSk/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/59/gravity/SouthEast/dx/10/dy/10" alt="image02"><div></div></a>
-					<a href="#"><img src="http://7xqlyr.com1.z0.glb.clouddn.com/duanzixian3.jpg?imageView2/1/w/480/h/260/q/100|watermark/2/text/5q615a2Q6LSk/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/59/gravity/SouthEast/dx/10/dy/10" alt="image03"><div></div></a>
+					
 				</div>
 				<!--<nav>	
 					<span class="dg-prev">&lt;</span>
@@ -71,7 +69,8 @@
 
         renderer = new THREE.WebGLRenderer();
         renderer.setSize( window.innerWidth, window.innerHeight );
-        document.body.appendChild( renderer.domElement );
+        $('.dg-wrapper')[0].appendChild(renderer.domElement);
+        //document.body.appendChild( renderer.domElement );
         //
         camera = new THREE.PerspectiveCamera( 70, window.innerWidth / window.innerHeight, 1, 1000 );
         camera.position.z = 400;
